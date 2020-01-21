@@ -54,11 +54,7 @@ public class MargeSort {
         System.arraycopy(array, left, leftArray, 0, lengthLeft);
         System.arraycopy(array, mid+1, rightArray, 0, lengthRight);
 
-        /*for (int i = 0; i < lengthLeft; i++)
-            leftArray[i] = array[left+i];
-        for (int i = 0; i < lengthRight; i++)
-            rightArray[i] = array[mid+i+1];*/
-
+        
         // итераторы содержат текущий индекс временного подмассива
         int leftIndex = 0;
         int rightIndex = 0;
