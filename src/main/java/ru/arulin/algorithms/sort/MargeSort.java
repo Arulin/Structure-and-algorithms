@@ -2,35 +2,17 @@ package ru.arulin.algorithms.sort;
 
 public class MargeSort {
     private int[] array;
-    private int nElements;
 
-    public MargeSort(int maxSize){
-        array = new int[maxSize];
-        nElements = 0;
+    public MargeSort(){}
+
+    public void sort(int[] A){
+        array = A;
+        margeSort(A, 0, A.length-1);
     }
 
-    public MargeSort(int[] array){
-        this.array = array;
-        nElements = array.length;
-    }
-
-    public void insert(int value){
-        try {
-            if (nElements != array.length) {
-                array[nElements] = value;
-                nElements++;
-            } else {
-                throw new ArrayIndexOutOfBoundsException();
-            }
-        }catch (ArrayIndexOutOfBoundsException ex){
-            System.out.println("превышен лимит, элемент не добавлен");
-        }
-
-    }
-
-    public void sort(){
-        if(nElements > 0)
-        margeSort(array, 0, array.length-1);
+    public void sort(int[] A, int p, int r){
+        array = A;
+        margeSort(A, p, r);
     }
 
     private void margeSort(int[] array,int left,int right){
@@ -53,11 +35,6 @@ public class MargeSort {
         // копируем отсортированные массивы во временные
         System.arraycopy(array, left, leftArray, 0, lengthLeft);
         System.arraycopy(array, mid+1, rightArray, 0, lengthRight);
-
-        /*for (int i = 0; i < lengthLeft; i++)
-            leftArray[i] = array[left+i];
-        for (int i = 0; i < lengthRight; i++)
-            rightArray[i] = array[mid+i+1];*/
 
         // итераторы содержат текущий индекс временного подмассива
         int leftIndex = 0;
